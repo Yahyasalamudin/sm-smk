@@ -1,14 +1,26 @@
 @php
     use App\Models\Role;
     use App\Models\Menu;
-
-    foreach (auth()->user()->roles as $role) {
-        $menus = Menu::with('role')
-            ->whereHas('role', function ($query) use ($role) {
-                return $query->where('role', $role->role);
-            })
-            ->get();
-    }
+    
+    $menus = Menu::whereIn('id', function ($query) {
+        $query
+            ->select('menu_id')
+            ->from('role_menus')
+            ->where(
+                'role_id',
+                auth()
+                    ->user()
+                    ->roles->pluck('id')
+                    ->toArray(),
+            );
+    })
+        ->with([
+            'role' => function ($query) {
+                $query->orderBy('id', 'asc');
+            },
+        ])
+        ->distinct()
+        ->get();
 @endphp
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">

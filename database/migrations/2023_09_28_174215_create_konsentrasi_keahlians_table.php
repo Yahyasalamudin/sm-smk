@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('konsentrasi_keahlian', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('no_induk')->nullable();
-            $table->string('tingkatan_kelas')->nullable();
-            $table->foreignId('guru_id')->nullable();
-            $table->rememberToken();
+            $table->string('nama');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('konsentrasi_keahlian');
     }
 };

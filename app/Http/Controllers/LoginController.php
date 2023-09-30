@@ -29,7 +29,7 @@ class LoginController extends Controller
         $remember = $request->remember;
 
         if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
-            return redirect('dashboard');
+            return redirect(route('dashboard', strtolower(auth()->user()->roles[0]->role)));
         } elseif (!User::where('email', $email)->first()) {
             return redirect()->back()->withErrors(['email' => 'Email anda tidak terdaftar!'])->withInput($request->input());
         } else {

@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('siswa', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('no_induk')->nullable();
-            $table->string('tingkatan_kelas')->nullable();
-            $table->foreignId('guru_id')->nullable();
-            $table->rememberToken();
+            $table->string('no_induk', 30);
+            $table->string('nis', 30)->nullable();
+            $table->string('nama_siswa', 50);
+            $table->enum('jk', ['L', 'P']);
+            $table->string('tmp_lahir', 50)->nullable();
+            $table->date('tgl_lahir')->nullable();
+            $table->string('foto');
+            $table->foreignId('kelas_id')->constrained('kelas');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('siswa');
     }
 };

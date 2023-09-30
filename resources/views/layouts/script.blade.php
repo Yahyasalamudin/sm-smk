@@ -44,8 +44,6 @@
 <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <!-- Bootstrap Switch -->
 <script src="{{ asset('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- fullCalendar 2.2.5 -->
 <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
 <script src="{{ asset('plugins/fullcalendar/main.min.js') }}"></script>
@@ -283,4 +281,4 @@
     </script>
 @endif
 
-@stack('js')
+@stack('script')

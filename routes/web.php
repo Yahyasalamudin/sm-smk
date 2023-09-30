@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
-use Illuminate\Auth\Events\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +22,7 @@ Route::post('/login', [LoginController::class, 'action_login'])->name('action-lo
 
 Route::middleware(['auth'])->group(function () {
     // dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/{role}', [DashboardController::class, 'index'])->name('dashboard');
 
     // logout
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

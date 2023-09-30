@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
 {
@@ -30,5 +31,18 @@ class RoleSeeder extends Seeder
         ];
 
         Role::insert($data);
+
+        $user_role = [
+            [
+                'user_id' => 1,
+                'role_id' => 1
+            ],
+            [
+                'user_id' => 1,
+                'role_id' => 8
+            ],
+        ];
+
+        DB::table('user_roles')->insert($user_role);
     }
 }

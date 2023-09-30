@@ -16,19 +16,10 @@
                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                     <a class="dropdown-item" href="{{ route('logout') }}"><i class="nav-icon fas fa-user"></i> &nbsp;
                         My Profile</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                            class="nav-icon fas fa-sign-out-alt"></i> &nbsp; Log Out</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                    </div>
+                    <a class="dropdown-item" href="{{ route('logout') }}">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        &nbsp; Log Out
+                    </a>
                 </div>
             </div>
         </li>

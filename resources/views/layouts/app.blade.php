@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@push('body')
+@push('name')
     class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-open"
 @endpush
 @section('app')
@@ -16,11 +16,10 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                                @breadcrumbs
-                            </ul>
-                            {{-- @yield('page') --}}
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}">
+                                <i class="nav-icon fas fa-home"></i> &nbsp; Home</a>
+                            </li>
+                            @yield('page')
                         </ol>
                     </div>
                 </div>
